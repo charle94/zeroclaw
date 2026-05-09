@@ -33,6 +33,11 @@ ci: fmt-check lint test
 build:
     cargo build --release --locked
 
+# Build a statically linked binary for x86_64 Linux (CentOS 7 compatible)
+# Requires: rustup target add x86_64-unknown-linux-musl && sudo apt install musl-tools
+build-musl:
+    cargo build --release --locked --target x86_64-unknown-linux-musl --bin zeroclaw
+
 # Build in debug mode
 build-debug:
     cargo build

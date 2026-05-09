@@ -34,7 +34,11 @@ build:
     cargo build --release --locked
 
 # Build a statically linked binary for x86_64 Linux (CentOS 7 compatible)
-# Requires: rustup target add x86_64-unknown-linux-musl && sudo apt install musl-tools
+# Prerequisites:
+#   rustup target add x86_64-unknown-linux-musl
+#   Ubuntu/Debian: sudo apt install musl-tools
+#   RHEL/CentOS:   sudo yum install musl-gcc  (or install from source)
+#   macOS:         brew install filosottile/musl-cross/musl-cross
 build-musl:
     cargo build --release --locked --target x86_64-unknown-linux-musl --bin zeroclaw
 
